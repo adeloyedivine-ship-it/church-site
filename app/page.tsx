@@ -18,4 +18,4 @@ export default function Home() {
       <Contact />
     </main>
   );
-}
+}1  
