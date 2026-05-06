@@ -1,21 +1,37 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Services from "./components/Services";
 import About from "./components/About";
+import Services from "./components/Services";
 import Sermons from "./components/Sermons";
 import Events from "./components/Events";
 import Contact from "./components/Contact";
+import ScrollReveal from "./components/ScrollReveal";
 
 export default function Home() {
   return (
-    <main className="bg-slate-50 text-slate-900">
+    <>
       <Navbar />
       <Hero />
-      <Services />
-      <About />
-      <Sermons />
-      <Events />
-      <Contact />
-    </main>
+
+      <ScrollReveal>
+        <About />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <Services />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <Sermons />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <Events />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <Contact />
+      </ScrollReveal>
+    </>
   );
-}1  
+}
