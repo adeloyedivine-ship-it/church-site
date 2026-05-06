@@ -6,7 +6,6 @@ import Sermons from "./components/Sermons";
 import Events from "./components/Events";
 import Contact from "./components/Contact";
 import ScrollReveal from "./components/ScrollReveal";
-
 export default function Home() {
   return (
     <>
