@@ -7,36 +7,35 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
-      
-      <div className="flex justify-between items-center px-6 py-4">
-        
-        <h1 className="text-xl font-bold text-blue-700">
-          Grace Church
-        </h1>
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur border-b">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8 text-sm font-medium">
-          <a href="#home" className="hover:text-blue-600">Home</a>
-          <a href="#about" className="hover:text-blue-600">About</a>
-          <a href="#sermons" className="hover:text-blue-600">Sermons</a>
-          <a href="#contact" className="hover:text-blue-600">Contact</a>
+        <h1 className="font-bold text-xl">Grace Church</h1>
+
+        {/* Desktop */}
+        <div className="hidden md:flex gap-6">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#sermons">Sermons</a>
+          <a href="#contact">Contact</a>
         </div>
 
-        {/* Mobile Button */}
+        {/* Mobile button */}
         <button
           className="md:hidden"
           onClick={() => setOpen(!open)}
         >
-          {open ? <X size={28} /> : <Menu size={28} />}
+          {open ? <X /> : <Menu />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden flex flex-col gap-4 px-6 pb-4 text-sm font-medium bg-white">
+        <div className="md:hidden px-6 pb-4 flex flex-col gap-3">
           <a href="#home">Home</a>
           <a href="#about">About</a>
+          <a href="#services">Services</a>
           <a href="#sermons">Sermons</a>
           <a href="#contact">Contact</a>
         </div>
