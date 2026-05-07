@@ -12,7 +12,7 @@ import {
 const services = [
   {
     title: "Sunday Worship Experience",
-    time: "9AM – 12PM",
+    time: "Sundays • 9AM – 12PM",
     desc: "Sunday School (9–10AM) and Worship Service (10AM–12PM).",
     icon: Church,
   },
@@ -54,21 +54,21 @@ export default function Services() {
         <div className="absolute w-96 h-96 bg-blue-300 blur-3xl rounded-full bottom-10 right-10"></div>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-2 gap-20 items-start">
+      <div className="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="sticky top-28"
+          className="lg:sticky lg:top-28"
         >
 
           <p className="uppercase tracking-[0.3em] text-blue-300 text-sm mb-4">
             Worship Experience
           </p>
 
-          <h2 className="text-5xl font-bold leading-tight mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
             Gather, Grow <br /> and Encounter God
           </h2>
 
