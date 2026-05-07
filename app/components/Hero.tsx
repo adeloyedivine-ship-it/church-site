@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-950 via-blue-900 to-black text-white overflow-hidden px-6">
+    <section className="pt-24 relative min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-950 via-blue-900 to-black text-white overflow-hidden px-6">
 
       <div className="absolute inset-0 opacity-20">
         <div className="absolute w-96 h-96 bg-blue-500 rounded-full blur-3xl top-10 left-10"></div>
