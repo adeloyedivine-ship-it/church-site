@@ -27,7 +27,7 @@ export default function Navbar() {
         >
 
           <Image
-            src="/images/logo.png"
+            src="/images/logo.jpeg"
             alt="RICHEM Logo"
             width={60}
             height={60}

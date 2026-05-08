@@ -137,7 +137,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-blue-300 blur-3xl opacity-30 rounded-full"></div>
 
             <img
-              src="/images/logo.png"
+              src="/images/logo.jpeg"
               alt="RICHEM Logo"
               className="relative z-10 w-full max-w-[520px] object-contain drop-shadow-2xl"
             />
