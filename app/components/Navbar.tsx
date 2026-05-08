@@ -3,90 +3,86 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
+const navLinks = [
+  { name: "Home", href: "#" },
+  { name: "About", href: "#about" },
+  { name: "Worship", href: "#services" },
+  { name: "Teachings", href: "#sermons" },
+  { name: "Events", href: "#events" },
+  { name: "Contact", href: "#contact" },
+];
+
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-white/10 text-white">
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/70 border-b border-blue-100 shadow-sm">
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-        <div>
-          <h1 className="text-2xl font-bold tracking-wide text-blue-300">
-            RICHEM
-          </h1>
+        <a
+          href="#"
+          className="flex items-center gap-3"
+        >
 
-          <p className="text-xs text-white/60 hidden md:block">
-            Riches In Christ Evangelical Mission
-          </p>
-        </div>
+          <div className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-blue-300 flex items-center justify-center text-white font-bold text-lg shadow-md">
+            R
+          </div>
 
-        <div className="hidden md:flex gap-8 text-sm font-medium">
+          <div>
+            <h1 className="text-lg md:text-xl font-bold text-slate-900 leading-tight">
+              RICHEM
+            </h1>
 
-          <a href="#" className="hover:text-blue-300 transition">
-            Home
-          </a>
+            <p className="text-xs text-slate-500">
+              Riches In Christ Evangelical Mission
+            </p>
+          </div>
 
-          <a href="#services" className="hover:text-blue-300 transition">
-            Services
-          </a>
+        </a>
 
-          <a href="#about" className="hover:text-blue-300 transition">
-            About
-          </a>
+        <nav className="hidden md:flex items-center gap-8">
 
-          <a href="#contact" className="hover:text-blue-300 transition">
-            Contact
-          </a>
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-slate-700 hover:text-blue-600 transition font-medium"
+            >
+              {link.name}
+            </a>
+          ))}
 
-        </div>
+        </nav>
 
         <button
-          className="md:hidden"
-          onClick={() => setOpen(!open)}
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-slate-700"
         >
-          {open ? <X size={28} /> : <Menu size={28} />}
+
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+
         </button>
 
       </div>
 
-      {open && (
-        <div className="md:hidden bg-black/95 border-t border-white/10 px-6 py-6 flex flex-col gap-6 text-lg">
+      {isOpen && (
+        <div className="md:hidden bg-white border-t border-blue-100 px-6 py-6 space-y-5 shadow-xl">
 
-          <a
-            href="#"
-            onClick={() => setOpen(false)}
-            className="hover:text-blue-300 transition"
-          >
-            Home
-          </a>
-
-          <a
-            href="#services"
-            onClick={() => setOpen(false)}
-            className="hover:text-blue-300 transition"
-          >
-            Services
-          </a>
-
-          <a
-            href="#about"
-            onClick={() => setOpen(false)}
-            className="hover:text-blue-300 transition"
-          >
-            About
-          </a>
-
-          <a
-            href="#contact"
-            onClick={() => setOpen(false)}
-            className="hover:text-blue-300 transition"
-          >
-            Contact
-          </a>
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="block text-slate-700 hover:text-blue-600 transition text-lg"
+            >
+              {link.name}
+            </a>
+          ))}
 
         </div>
       )}
-    </nav>
+
+    </header>
   );
 }
