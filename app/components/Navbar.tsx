@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -16,27 +17,35 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/70 border-b border-blue-100 shadow-sm">
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/80 border-b border-blue-100 shadow-sm">
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         <a
           href="#"
-          className="flex items-center gap-3"
+          className="flex items-center gap-4"
         >
 
-          <div className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-blue-300 flex items-center justify-center text-white font-bold text-lg shadow-md">
-            R
-          </div>
+          <Image
+            src="/images/logo.png"
+            alt="RICHEM Logo"
+            width={60}
+            height={60}
+            className="object-contain"
+            priority
+          />
 
           <div>
-            <h1 className="text-lg md:text-xl font-bold text-slate-900 leading-tight">
+
+            <h1 className="text-xl md:text-2xl font-bold text-blue-700 leading-tight">
               RICHEM
             </h1>
 
-            <p className="text-xs text-slate-500">
-              Riches In Christ Evangelical Mission
+            <p className="text-xs md:text-sm text-slate-600 leading-tight">
+              Riches In Christ <br />
+              Evangelical Mission
             </p>
+
           </div>
 
         </a>
