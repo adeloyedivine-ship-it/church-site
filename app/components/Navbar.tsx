@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -17,33 +16,31 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/80 border-b border-blue-100 shadow-sm">
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/90 border-b border-blue-100 shadow-sm">
 
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
         <a
           href="#"
           className="flex items-center gap-4"
         >
 
-          <Image
-            src="/images/logo.jpeg"
-            alt="RICHEM Logo"
-            width={60}
-            height={60}
-            className="object-contain"
-            priority
-          />
+          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-sky-400 flex items-center justify-center shadow-lg">
+
+            <span className="text-white font-black text-2xl">
+              R
+            </span>
+
+          </div>
 
           <div>
 
-            <h1 className="text-xl md:text-2xl font-bold text-blue-700 leading-tight">
+            <h1 className="text-2xl md:text-3xl font-black text-blue-700 leading-tight">
               RICHEM
             </h1>
 
-            <p className="text-xs md:text-sm text-slate-600 leading-tight">
-              Riches In Christ <br />
-              Evangelical Mission
+            <p className="text-sm text-slate-600 leading-tight">
+              Riches In Christ Evangelical Mission
             </p>
 
           </div>
@@ -56,7 +53,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-slate-700 hover:text-blue-600 transition font-medium"
+              className="text-slate-700 hover:text-blue-600 transition font-semibold"
             >
               {link.name}
             </a>
@@ -69,7 +66,7 @@ export default function Navbar() {
           className="md:hidden text-slate-700"
         >
 
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={30} /> : <Menu size={30} />}
 
         </button>
 
@@ -83,7 +80,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="block text-slate-700 hover:text-blue-600 transition text-lg"
+              className="block text-slate-700 hover:text-blue-600 transition text-lg font-medium"
             >
               {link.name}
             </a>
