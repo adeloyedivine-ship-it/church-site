@@ -1,144 +1,172 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Globe,
-} from "lucide-react";
 
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-28 px-6 bg-gradient-to-b from-blue-950 to-black text-white overflow-hidden"
+      className="relative section-spacing px-6 bg-gradient-to-b from-blue-50 to-white overflow-hidden"
     >
 
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute w-[400px] h-[400px] bg-blue-500 blur-3xl rounded-full bottom-10 right-10"></div>
-      </div>
+      {/* Glow */}
+      <div className="blue-glow bg-blue-200 w-[350px] h-[350px] bottom-0 left-0"></div>
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
 
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center max-w-4xl mx-auto mb-20"
         >
 
-          <p className="uppercase tracking-[0.3em] text-blue-300 text-sm mb-4">
-            Contact RICHEM
+          <p className="uppercase tracking-[0.3em] text-blue-600 font-bold text-sm mb-6">
+            Connect With Us
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Worship With Us
+          <h2 className="text-4xl md:text-6xl font-black text-slate-900 leading-tight mb-8">
+            We Would Love To Welcome You
           </h2>
 
-          <p className="text-white/70 max-w-2xl mx-auto leading-relaxed">
-            We welcome you to fellowship with us as we grow together
-            in Christ through worship, prayer, teaching, and revival.
+          <p className="text-soft text-lg md:text-xl">
+            Whether you are visiting for the first time,
+            seeking prayer, or looking for a place of worship,
+            we are excited to connect with you.
           </p>
 
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid lg:grid-cols-2 gap-12">
 
+          {/* LEFT SIDE */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur"
+            className="glass rounded-[2rem] p-10 shadow-2xl border border-blue-100"
           >
 
-            <MapPin className="text-blue-300 mb-6" size={34} />
-
-            <h3 className="text-2xl font-semibold mb-4">
-              Location
+            <h3 className="text-3xl font-black text-slate-900 mb-10">
+              Church Information
             </h3>
 
-            <p className="text-white/70 leading-relaxed">
-              3A Joseph Ade-Ojo Street,
-              Abusoro, Ijoka,
-              Akure, Ondo State,
-              Nigeria.
-            </p>
+            <div className="space-y-8">
+
+              <div>
+                <p className="text-blue-600 font-black uppercase tracking-widest text-sm mb-2">
+                  Address
+                </p>
+
+                <p className="text-soft text-lg">
+                  3A Joseph Ade-Ojo Street,
+                  Abusoro, Ijoka,
+                  Akure, Ondo State,
+                  Nigeria.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-blue-600 font-black uppercase tracking-widest text-sm mb-2">
+                  Worship Times
+                </p>
+
+                <p className="text-soft text-lg">
+                  Sundays: 9AM – 12PM
+                </p>
+
+                <p className="text-soft text-lg">
+                  Tuesday Bible Study: 5PM
+                </p>
+
+                <p className="text-soft text-lg">
+                  Thursday Prayer Meeting: 5PM
+                </p>
+              </div>
+
+              <div>
+                <p className="text-blue-600 font-black uppercase tracking-widest text-sm mb-2">
+                  Contact
+                </p>
+
+                <p className="text-soft text-lg">
+                  +234 9130490295
+                </p>
+
+                <p className="text-soft text-lg break-all">
+                  adeloyedivine@gmail.com
+                </p>
+              </div>
+
+            </div>
 
           </motion.div>
 
+          {/* RIGHT SIDE */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur"
+            className="glass rounded-[2rem] p-10 shadow-2xl border border-blue-100"
           >
 
-            <Phone className="text-blue-300 mb-6" size={34} />
-
-            <h3 className="text-2xl font-semibold mb-4">
-              Phone
+            <h3 className="text-3xl font-black text-slate-900 mb-10">
+              First Time Visitor Form
             </h3>
 
-            <p className="text-white/70">
-              +234 9130490295
-            </p>
+            <form
+              action="https://formsubmit.co/adeloyedivine@gmail.com"
+              method="POST"
+              className="space-y-6"
+            >
 
-          </motion.div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                required
+                className="w-full px-6 py-4 rounded-2xl border border-blue-100 outline-none focus:border-blue-500"
+              />
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            viewport={{ once: true }}
-            className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur"
-          >
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+                className="w-full px-6 py-4 rounded-2xl border border-blue-100 outline-none focus:border-blue-500"
+              />
 
-            <Mail className="text-blue-300 mb-6" size={34} />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                className="w-full px-6 py-4 rounded-2xl border border-blue-100 outline-none focus:border-blue-500"
+              />
 
-            <h3 className="text-2xl font-semibold mb-4">
-              Email
-            </h3>
+              <textarea
+                name="message"
+                placeholder="Prayer Request / Message"
+                rows={5}
+                className="w-full px-6 py-4 rounded-2xl border border-blue-100 outline-none focus:border-blue-500"
+              ></textarea>
 
-            <p className="text-white/70 break-all">
-              adeloyedivine@gmail.com
-            </p>
+              <button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700 transition text-white py-5 rounded-2xl font-black shadow-xl shadow-blue-300/40"
+              >
+                Submit Information
+              </button>
+
+            </form>
 
           </motion.div>
 
         </div>
 
-        <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-
-          <div>
-            <h3 className="text-2xl font-bold text-blue-300">
-              RICHEM
-            </h3>
-
-            <p className="text-white/50 mt-2">
-              If God be for us, who can be against us?
-            </p>
-          </div>
-
-          <a
-            href="https://facebook.com/groups/richem/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 hover:text-blue-300 transition"
-          >
-
-            <Globe size={24} />
-
-            <span>
-              Follow Us on Facebook
-            </span>
-
-          </a>
-
-        </div>
       </div>
     </section>
   );

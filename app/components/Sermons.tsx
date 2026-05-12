@@ -1,20 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PlayCircle } from "lucide-react";
 
 const sermons = [
   {
     title: "Reaping What You Sow",
     description:
-      "A powerful teaching on spiritual seeds, stewardship, and divine harvest.",
+      "A timely message on spiritual seeds, obedience, and the harvest that follows faithful living.",
     link: "https://www.facebook.com/groups/richem/permalink/2004041723533452/?mibextid=rS40aB7S9Ucbxw6v",
   },
+
   {
-    title: "The Breath of God",
+    title: "The Breath of GOD",
     description:
-      "Encounter the life-giving power and presence of God through this impactful message.",
+      "A powerful teaching on spiritual life, revival, and the transforming power of God’s breath.",
     link: "https://www.facebook.com/richemworldwide/videos/2512444465840157/",
+  },
+
+  {
+    title: "Victorious Living",
+    description:
+      "Learn how believers can walk daily in faith, authority, victory, and spiritual maturity.",
+    link: "#",
   },
 ];
 
@@ -22,72 +29,88 @@ export default function Sermons() {
   return (
     <section
       id="sermons"
-      className="relative py-28 px-6 bg-gradient-to-b from-blue-950 to-black text-white overflow-hidden"
+      className="relative section-spacing px-6 bg-white overflow-hidden"
     >
 
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute w-96 h-96 bg-blue-500 blur-3xl rounded-full top-10 left-10"></div>
-      </div>
+      {/* Glow */}
+      <div className="blue-glow bg-blue-200 w-[350px] h-[350px] top-0 right-0"></div>
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
 
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center max-w-4xl mx-auto mb-20"
         >
 
-          <p className="uppercase tracking-[0.3em] text-blue-300 text-sm mb-4">
+          <p className="uppercase tracking-[0.3em] text-blue-600 font-bold text-sm mb-6">
             Featured Teachings
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-black text-slate-900 leading-tight mb-8">
             Messages That Transform Lives
           </h2>
 
-          <p className="text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Experience life-transforming teachings, spiritual insight,
-            and powerful messages centered on Christ and victorious living.
+          <p className="text-soft text-lg md:text-xl">
+            Explore life-transforming teachings, sermons,
+            and messages designed to strengthen your walk with God.
           </p>
 
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* Sermons Grid */}
+        <div className="grid lg:grid-cols-3 gap-10">
 
           {sermons.map((sermon, index) => (
-            <motion.a
-              key={index}
-              href={sermon.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 40 }}
+            <motion.div
+              key={sermon.title}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -6 }}
-              className="group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur hover:border-blue-400 transition duration-300"
+              className="glass rounded-[2rem] p-8 shadow-xl border border-blue-100 flex flex-col"
             >
 
-              <div className="flex items-center gap-3 mb-6 text-blue-300">
-                <PlayCircle size={32} />
-                <span className="uppercase tracking-widest text-sm">
-                  Watch Teaching
-                </span>
+              <div className="mb-6">
+
+                <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center mb-6">
+
+                  <span className="text-blue-700 text-3xl font-black">
+                    ✦
+                  </span>
+
+                </div>
+
+                <h3 className="text-3xl font-black text-slate-900 mb-5 leading-tight">
+                  {sermon.title}
+                </h3>
+
+                <p className="text-soft text-lg">
+                  {sermon.description}
+                </p>
+
               </div>
 
-              <h3 className="text-3xl font-semibold mb-4 group-hover:text-blue-300 transition">
-                {sermon.title}
-              </h3>
+              <div className="mt-auto pt-8">
 
-              <p className="text-white/70 leading-relaxed">
-                {sermon.description}
-              </p>
+                <a
+                  href={sermon.link}
+                  target="_blank"
+                  className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 transition text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-blue-300/30"
+                >
+                  Watch Message
+                </a>
 
-            </motion.a>
+              </div>
+
+            </motion.div>
           ))}
+
         </div>
+
       </div>
     </section>
   );

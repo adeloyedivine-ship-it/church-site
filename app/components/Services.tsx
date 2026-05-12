@@ -1,44 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Church,
-  Megaphone,
-  BookOpen,
-  HeartHandshake,
-  Flame,
-} from "lucide-react";
 
 const services = [
   {
     title: "Sunday Worship Experience",
-    time: "Sundays • 9AM – 12PM",
-    desc: "Sunday School (9–10AM) and Worship Service (10AM–12PM).",
-    icon: Church,
+    time: "9:00AM – 12:00PM",
+    details:
+      "Sunday School (9AM – 10AM) followed by Worship Service (10AM – 12PM).",
   },
+
   {
-    title: "Evangelism & Visitation",
-    time: "Mondays • 5PM",
-    desc: "Reaching lives with the Gospel and sharing the love of Christ.",
-    icon: Megaphone,
+    title: "Monday Evangelism & Visitation",
+    time: "5:00PM",
+    details:
+      "Reaching souls and strengthening believers through outreach and visitation.",
   },
+
   {
-    title: "Bible Study",
-    time: "Tuesdays • 5PM",
-    desc: "Deep teachings, spiritual growth, and fellowship in Christ.",
-    icon: BookOpen,
+    title: "Tuesday Bible Study",
+    time: "5:00PM",
+    details:
+      "Deep scriptural teaching, spiritual growth, and practical Christian living.",
   },
+
   {
-    title: "Counselling & Deliverance",
-    time: "Wednesdays • 12PM – 3PM",
-    desc: "Prayer, counselling, healing, and spiritual guidance.",
-    icon: HeartHandshake,
+    title: "Wednesday Counselling & Deliverance",
+    time: "12:00PM – 3:00PM",
+    details:
+      "Prayer, counselling, healing, and deliverance sessions for spiritual restoration.",
   },
+
   {
-    title: "Prayer Meeting",
-    time: "Thursdays • 5PM",
-    desc: "A powerful time of prayer, worship, and encounter with God.",
-    icon: Flame,
+    title: "Thursday Prayer Meeting",
+    time: "5:00PM",
+    details:
+      "A powerful atmosphere of intercession, worship, and revival prayers.",
   },
 ];
 
@@ -46,78 +43,70 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative py-28 px-6 bg-black text-white overflow-hidden"
+      className="relative section-spacing px-6 bg-gradient-to-b from-blue-50 to-white overflow-hidden"
     >
 
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute w-96 h-96 bg-blue-500 blur-3xl rounded-full top-20 left-10"></div>
-        <div className="absolute w-96 h-96 bg-blue-300 blur-3xl rounded-full bottom-10 right-10"></div>
-      </div>
+      <div className="blue-glow bg-blue-200 w-[350px] h-[350px] top-20 left-0"></div>
 
-      <div className="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+      <div className="max-w-7xl mx-auto">
 
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="lg:sticky lg:top-28"
+          className="text-center max-w-4xl mx-auto mb-20"
         >
 
-          <p className="uppercase tracking-[0.3em] text-blue-300 text-sm mb-4">
+          <p className="uppercase tracking-[0.3em] text-blue-600 font-bold text-sm mb-6">
             Worship Experience
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-            Gather, Grow <br /> and Encounter God
+          <h2 className="text-4xl md:text-6xl font-black text-slate-900 leading-tight mb-8">
+            Gather, Grow & Encounter God
           </h2>
 
-          <p className="text-white/70 leading-relaxed text-lg">
-            At Riches In Christ Evangelical Mission (RICHEM),
-            every gathering is an opportunity for spiritual growth,
-            fellowship, revival, healing, and encounter with God.
+          <p className="text-soft text-lg md:text-xl">
+            Join us weekly for worship, prayer, revival,
+            Bible study, discipleship, evangelism,
+            and spiritual transformation.
           </p>
 
         </motion.div>
 
-        <div className="relative border-l border-white/10 pl-10 space-y-12">
+        <div className="grid lg:grid-cols-2 gap-10">
 
-          {services.map((service, index) => {
-            const Icon = service.icon;
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="glass rounded-[2rem] p-8 shadow-xl border border-blue-100 hover:-translate-y-2 transition duration-300"
+            >
 
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="relative"
-              >
+              <div className="flex items-center justify-between flex-wrap gap-4 mb-6">
 
-                <div className="absolute -left-[52px] top-2 w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/40">
-                  <Icon size={20} />
-                </div>
+                <h3 className="text-2xl font-black text-slate-900">
+                  {service.title}
+                </h3>
 
-                <div className="bg-white/5 border border-white/10 backdrop-blur rounded-2xl p-6 hover:border-blue-400 transition duration-300">
+                <span className="bg-blue-100 text-blue-700 px-5 py-2 rounded-full text-sm font-bold">
+                  {service.time}
+                </span>
 
-                  <p className="text-blue-300 text-sm mb-2">
-                    {service.time}
-                  </p>
+              </div>
 
-                  <h3 className="text-2xl font-semibold mb-3">
-                    {service.title}
-                  </h3>
+              <p className="text-soft text-lg">
+                {service.details}
+              </p>
 
-                  <p className="text-white/70 leading-relaxed">
-                    {service.desc}
-                  </p>
+            </motion.div>
+          ))}
 
-                </div>
-              </motion.div>
-            );
-          })}
         </div>
+
       </div>
     </section>
   );
