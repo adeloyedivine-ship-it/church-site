@@ -6,7 +6,7 @@ import Services from "./components/Services";
 import Sermons from "./components/Sermons";
 import Gallery from "./components/Gallery";
 import Countdown from "./components/Countdown";
-import LiveStream from "./components/Livestream";
+import LiveStream from "./components/LiveStream";
 import Events from "./components/Events";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
