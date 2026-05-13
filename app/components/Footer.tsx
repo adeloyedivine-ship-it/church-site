@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="relative px-6 pt-24 pb-10 bg-slate-950 overflow-hidden">
@@ -16,11 +18,14 @@ export default function Footer() {
 
             <div className="flex items-center gap-4 mb-8">
 
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center shadow-lg">
+              <div className="relative w-14 h-14 rounded-full overflow-hidden shadow-lg border border-white/10 bg-white">
 
-                <span className="text-white text-2xl font-black">
-                  R
-                </span>
+                <Image
+                  src="/images/logo.jpg"
+                  alt="RICHEM Logo"
+                  fill
+                  className="object-cover"
+                />
 
               </div>
 
@@ -88,25 +93,15 @@ export default function Footer() {
 
             <div className="space-y-5 text-slate-400">
 
-              <p>
-                Sunday Worship — 9AM
-              </p>
+              <p>Sunday Worship — 9AM</p>
 
-              <p>
-                Monday Evangelism — 5PM
-              </p>
+              <p>Monday Evangelism — 5PM</p>
 
-              <p>
-                Tuesday Bible Study — 5PM
-              </p>
+              <p>Tuesday Bible Study — 5PM</p>
 
-              <p>
-                Wednesday Counselling — 12PM
-              </p>
+              <p>Wednesday Counselling — 12PM</p>
 
-              <p>
-                Thursday Prayer Meeting — 5PM
-              </p>
+              <p>Thursday Prayer Meeting — 5PM</p>
 
             </div>
 

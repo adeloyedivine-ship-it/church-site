@@ -7,6 +7,7 @@ import Sermons from "./components/Sermons";
 import Gallery from "./components/Gallery";
 import Countdown from "./components/Countdown";
 import LiveStream from "./components/LiveStream";
+import Location from "./components/Location";
 import Events from "./components/Events";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -32,6 +33,8 @@ export default function Home() {
       <Countdown />
 
       <LiveStream />
+
+      <Location />
 
       <Events />
 
