@@ -1,47 +1,82 @@
-html {
-  scroll-behavior: smooth;
+@import "tailwindcss";
+
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-  overflow-x: hidden;
+body{
+  margin:0;
+  padding:0;
+  background:#ffffff;
+  color:#111827;
+  font-family:Arial, Helvetica, sans-serif;
+  overflow-x:hidden;
 }
 
-.section-spacing {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+*{
+  box-sizing:border-box;
 }
 
-.text-soft {
-  color: rgb(71 85 105);
-  line-height: 1.8;
+section{
+  overflow:hidden;
+  position:relative;
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(18px);
+/* SMOOTH TRANSITIONS */
+a,
+button{
+  transition:all 0.3s ease;
 }
 
-.blue-glow {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(120px);
-  opacity: 0.25;
-  z-index: 0;
+/* BETTER IMAGE RENDERING */
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
 }
 
-@media (max-width: 768px) {
+/* CLEAN SCROLLBAR */
+::-webkit-scrollbar{
+  width:10px;
+}
 
-  .section-spacing {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
+::-webkit-scrollbar-track{
+  background:#f1f5f9;
+}
 
-  h1 {
-    line-height: 1.1 !important;
-  }
+::-webkit-scrollbar-thumb{
+  background:#1e3a8a;
+  border-radius:20px;
+}
 
-  h2 {
-    line-height: 1.15 !important;
-  }
+::-webkit-scrollbar-thumb:hover{
+  background:#1d4ed8;
+}
 
+/* CLEAN TEXT SELECTION */
+::selection{
+  background:#1d4ed8;
+  color:white;
+}
+
+/* PREMIUM SECTION SPACING */
+.section-spacing{
+  padding-top:120px;
+  padding-bottom:120px;
+}
+
+/* PREMIUM SHADOW */
+.premium-shadow{
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.08);
+}
+
+/* HERO OVERLAY */
+.hero-overlay{
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.6)
+    );
 }

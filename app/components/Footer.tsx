@@ -1,52 +1,22 @@
-"use client";
-
-import Image from "next/image";
-
 export default function Footer() {
+
   return (
-    <footer className="relative px-6 pt-24 pb-10 bg-slate-950 overflow-hidden">
 
-      {/* Glow */}
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-blue-500/20 blur-[120px] rounded-full"></div>
+    <footer className="bg-blue-950 text-white py-24">
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6">
 
-        <div className="grid lg:grid-cols-4 gap-14 pb-16 border-b border-white/10">
+        <div className="grid md:grid-cols-4 gap-14">
 
-          {/* CHURCH INFO */}
+          {/* ABOUT */}
           <div>
 
-            <div className="flex items-center gap-4 mb-8">
+            <h2 className="text-4xl font-black mb-6">
+              RICHEM
+            </h2>
 
-              <div className="relative w-14 h-14 rounded-full overflow-hidden shadow-lg border border-white/10 bg-white">
-
-                <Image
-                  src="/images/logo.jpg"
-                  alt="RICHEM Logo"
-                  fill
-                  className="object-cover"
-                />
-
-              </div>
-
-              <div>
-
-                <h2 className="text-2xl font-black text-white">
-                  RICHEM
-                </h2>
-
-                <p className="text-slate-400 text-sm">
-                  Riches In Christ Evangelical Mission
-                </p>
-
-              </div>
-
-            </div>
-
-            <p className="text-slate-400 leading-relaxed text-lg">
-              Raising believers for victorious living through
-              worship, prayer, discipleship, evangelism,
-              and the transforming power of Jesus Christ.
+            <p className="text-blue-100 leading-relaxed">
+              Raising believers for victorious living through evangelism, worship, revival and the ministry of the Word.
             </p>
 
           </div>
@@ -54,29 +24,25 @@ export default function Footer() {
           {/* QUICK LINKS */}
           <div>
 
-            <h3 className="text-white text-2xl font-black mb-8">
+            <h3 className="text-2xl font-bold mb-6">
               Quick Links
             </h3>
 
-            <div className="space-y-5">
+            <div className="space-y-4 text-blue-100">
 
-              <a href="#" className="block text-slate-400 hover:text-white transition">
-                Home
-              </a>
-
-              <a href="#about" className="block text-slate-400 hover:text-white transition">
+              <a href="#about" className="block hover:text-white">
                 About
               </a>
 
-              <a href="#services" className="block text-slate-400 hover:text-white transition">
-                Worship
+              <a href="#events" className="block hover:text-white">
+                Convention
               </a>
 
-              <a href="#events" className="block text-slate-400 hover:text-white transition">
-                Events
+              <a href="#live" className="block hover:text-white">
+                Live
               </a>
 
-              <a href="#contact" className="block text-slate-400 hover:text-white transition">
+              <a href="#contact" className="block hover:text-white">
                 Contact
               </a>
 
@@ -84,24 +50,42 @@ export default function Footer() {
 
           </div>
 
-          {/* WORSHIP TIMES */}
+          {/* LOCATIONS */}
           <div>
 
-            <h3 className="text-white text-2xl font-black mb-8">
-              Worship Times
+            <h3 className="text-2xl font-bold mb-6">
+              Locations
             </h3>
 
-            <div className="space-y-5 text-slate-400">
+            <div className="space-y-6 text-blue-100">
 
-              <p>Sunday Worship — 9AM</p>
+              <div>
 
-              <p>Monday Evangelism — 5PM</p>
+                <p className="font-bold text-white mb-2">
+                  Headquarters
+                </p>
 
-              <p>Tuesday Bible Study — 5PM</p>
+                <p>
+                  3A Joseph Ade-Ojo Street,
+                  Abusoro, Ijoka,
+                  Akure, Ondo State
+                </p>
 
-              <p>Wednesday Counselling — 12PM</p>
+              </div>
 
-              <p>Thursday Prayer Meeting — 5PM</p>
+              <div>
+
+                <p className="font-bold text-white mb-2">
+                  Richem Cathedral
+                </p>
+
+                <p>
+                  Road Maker, Ado Road,
+                  Igoba, Akure,
+                  Ondo State
+                </p>
+
+              </div>
 
             </div>
 
@@ -110,33 +94,23 @@ export default function Footer() {
           {/* CONTACT */}
           <div>
 
-            <h3 className="text-white text-2xl font-black mb-8">
+            <h3 className="text-2xl font-bold mb-6">
               Contact
             </h3>
 
-            <div className="space-y-5 text-slate-400">
+            <div className="space-y-4 text-blue-100">
 
               <p>
-                3A Joseph Ade-Ojo Street,
-                Abusoro, Ijoka,
-                Akure, Ondo State.
+                +234 913 049 0295
               </p>
 
               <p>
-                +234 9130490295
-              </p>
-
-              <p className="break-all">
                 adeloyedivine@gmail.com
               </p>
 
-              <a
-                href="https://facebook.com/groups/richem/"
-                target="_blank"
-                className="inline-block text-blue-400 hover:text-blue-300 transition"
-              >
-                Facebook Community
-              </a>
+              <p>
+                Riches In Christ Evangelical Mission
+              </p>
 
             </div>
 
@@ -144,21 +118,15 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom */}
-        <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* COPYRIGHT */}
+        <div className="border-t border-blue-800 mt-20 pt-10 text-center text-blue-200">
 
-          <p className="text-slate-500 text-center md:text-left">
-            © 2026 Riches In Christ Evangelical Mission.
-            All Rights Reserved.
-          </p>
-
-          <p className="text-slate-500 text-center md:text-right">
-            Built with excellence for God’s glory.
-          </p>
+          © 2026 Riches In Christ Evangelical Mission (RICHEM). All Rights Reserved.
 
         </div>
 
       </div>
+
     </footer>
   );
 }

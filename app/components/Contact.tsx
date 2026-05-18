@@ -1,173 +1,328 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
+import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 export default function Contact() {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [messageType, setMessageType] = useState("Prayer Request");
+  const [message, setMessage] = useState("");
+
+  const fullMessage = `
+RICHEM WEBSITE MESSAGE
+
+Name: ${name}
+
+Email: ${email}
+
+Category: ${messageType}
+
+Message:
+${message}
+  `;
+
+  const sendWhatsapp = () => {
+
+    window.open(
+      `https://wa.me/2349130490295?text=${encodeURIComponent(fullMessage)}`
+    );
+
+  };
+
+  const sendEmail = () => {
+
+    window.location.href =
+      `mailto:adeloyedivine@gmail.com?subject=${encodeURIComponent(messageType)}&body=${encodeURIComponent(fullMessage)}`;
+
+  };
+
   return (
-    <section
-      id="contact"
-      className="relative section-spacing px-6 bg-gradient-to-b from-blue-50 to-white overflow-hidden"
-    >
+    <>
 
-      {/* Glow */}
-      <div className="blue-glow bg-blue-200 w-[350px] h-[350px] bottom-0 left-0"></div>
+      {/* CONTACT SECTION */}
+      <section
+        id="contact"
+        className="py-24 bg-white"
+      >
 
-      <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-6">
 
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center max-w-4xl mx-auto mb-20"
-        >
+          {/* HEADING */}
+          <div className="text-center mb-20">
 
-          <p className="uppercase tracking-[0.3em] text-blue-600 font-bold text-sm mb-6">
-            Connect With Us
-          </p>
+            <p className="uppercase tracking-[0.3em] text-blue-700 text-sm mb-4">
+              Connect With Us
+            </p>
 
-          <h2 className="text-4xl md:text-6xl font-black text-slate-900 leading-tight mb-8">
-            We Would Love To Welcome You
-          </h2>
+            <h2 className="text-5xl md:text-6xl font-black text-blue-950 mb-6 leading-tight">
+              We Would Love To Hear From You
+            </h2>
 
-          <p className="text-soft text-lg md:text-xl">
-            Whether you are visiting for the first time,
-            seeking prayer, or looking for a place of worship,
-            we are excited to connect with you.
-          </p>
+            <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+              Prayer requests, testimonies, counselling and spiritual questions can be sent directly to the ministry.
+            </p>
 
-        </motion.div>
+          </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT SIDE */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="glass rounded-[2rem] p-10 shadow-2xl border border-blue-100"
-          >
+            {/* LEFT */}
+            <div className="bg-[#f8fbff] rounded-[40px] p-10 md:p-14 shadow-xl border border-blue-100">
 
-            <h3 className="text-3xl font-black text-slate-900 mb-10">
-              Church Information
-            </h3>
+              <div className="space-y-8">
 
-            <div className="space-y-8">
+                {/* NAME */}
+                <div>
 
-              <div>
-                <p className="text-blue-600 font-black uppercase tracking-widest text-sm mb-2">
-                  Address
-                </p>
+                  <label className="block mb-3 font-semibold text-blue-950">
+                    Your Name
+                  </label>
 
-                <p className="text-soft text-lg">
-                  3A Joseph Ade-Ojo Street,
-                  Abusoro, Ijoka,
-                  Akure, Ondo State,
-                  Nigeria.
-                </p>
-              </div>
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full rounded-2xl border border-gray-200 p-5 outline-none bg-white"
+                  />
 
-              <div>
-                <p className="text-blue-600 font-black uppercase tracking-widest text-sm mb-2">
-                  Worship Times
-                </p>
+                </div>
 
-                <p className="text-soft text-lg">
-                  Sundays: 9AM – 12PM
-                </p>
+                {/* EMAIL */}
+                <div>
 
-                <p className="text-soft text-lg">
-                  Tuesday Bible Study: 5PM
-                </p>
+                  <label className="block mb-3 font-semibold text-blue-950">
+                    Your Email
+                  </label>
 
-                <p className="text-soft text-lg">
-                  Thursday Prayer Meeting: 5PM
-                </p>
-              </div>
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full rounded-2xl border border-gray-200 p-5 outline-none bg-white"
+                  />
 
-              <div>
-                <p className="text-blue-600 font-black uppercase tracking-widest text-sm mb-2">
-                  Contact
-                </p>
+                </div>
 
-                <p className="text-soft text-lg">
-                  +234 9130490295
-                </p>
+                {/* TYPE */}
+                <div>
 
-                <p className="text-soft text-lg break-all">
-                  adeloyedivine@gmail.com
-                </p>
+                  <label className="block mb-3 font-semibold text-blue-950">
+                    Message Type
+                  </label>
+
+                  <select
+                    value={messageType}
+                    onChange={(e) => setMessageType(e.target.value)}
+                    className="w-full rounded-2xl border border-gray-200 p-5 outline-none bg-white"
+                  >
+
+                    <option>Prayer Request</option>
+                    <option>Testimony</option>
+                    <option>Question</option>
+                    <option>Counselling</option>
+
+                  </select>
+
+                </div>
+
+                {/* MESSAGE */}
+                <div>
+
+                  <label className="block mb-3 font-semibold text-blue-950">
+                    Your Message
+                  </label>
+
+                  <textarea
+                    rows={8}
+                    placeholder="Type your message..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="w-full rounded-2xl border border-gray-200 p-5 outline-none resize-none bg-white"
+                  />
+
+                </div>
+
+                {/* BUTTONS */}
+                <div className="flex items-center gap-5">
+
+                  <button
+                    onClick={sendWhatsapp}
+                    className="flex-1 bg-green-500 hover:bg-green-600 text-white py-5 rounded-full flex items-center justify-center text-2xl transition-all duration-300 hover:scale-105"
+                  >
+
+                    <FaWhatsapp />
+
+                  </button>
+
+                  <button
+                    onClick={sendEmail}
+                    className="flex-1 bg-blue-950 hover:bg-blue-800 text-white py-5 rounded-full flex items-center justify-center text-2xl transition-all duration-300 hover:scale-105"
+                  >
+
+                    <FaEnvelope />
+
+                  </button>
+
+                </div>
+
               </div>
 
             </div>
 
-          </motion.div>
+            {/* RIGHT */}
+            <div>
 
-          {/* RIGHT SIDE */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="glass rounded-[2rem] p-10 shadow-2xl border border-blue-100"
-          >
+              <div className="relative h-[650px] rounded-[40px] overflow-hidden shadow-2xl">
 
-            <h3 className="text-3xl font-black text-slate-900 mb-10">
-              First Time Visitor Form
-            </h3>
+                <Image
+                  src="/images/church.jpg"
+                  alt="RICHEM"
+                  fill
+                  className="object-cover"
+                />
 
-            <form
-              action="https://formsubmit.co/adeloyedivine@gmail.com"
-              method="POST"
-              className="space-y-6"
-            >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
 
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                required
-                className="w-full px-6 py-4 rounded-2xl border border-blue-100 outline-none focus:border-blue-500"
-              />
+                <div className="absolute bottom-10 left-10 right-10 text-white">
 
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                required
-                className="w-full px-6 py-4 rounded-2xl border border-blue-100 outline-none focus:border-blue-500"
-              />
+                  <p className="uppercase tracking-[0.2em] text-sm mb-4">
+                    Reach Out To Us
+                  </p>
 
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                className="w-full px-6 py-4 rounded-2xl border border-blue-100 outline-none focus:border-blue-500"
-              />
+                  <h3 className="text-4xl font-black leading-tight mb-8">
+                    Raising Believers For Victorious Living
+                  </h3>
 
-              <textarea
-                name="message"
-                placeholder="Prayer Request / Message"
-                rows={5}
-                className="w-full px-6 py-4 rounded-2xl border border-blue-100 outline-none focus:border-blue-500"
-              ></textarea>
+                  <div className="space-y-6 text-blue-100">
 
-              <button
-                type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 transition text-white py-5 rounded-2xl font-black shadow-xl shadow-blue-300/40"
-              >
-                Submit Information
-              </button>
+                    <div>
 
-            </form>
+                      <p className="font-bold text-white mb-2">
+                        Headquarters
+                      </p>
 
-          </motion.div>
+                      <p>
+                        3A Joseph Ade-Ojo Street,
+                        Abusoro, Ijoka,
+                        Akure, Ondo State
+                      </p>
+
+                    </div>
+
+                    <div>
+
+                      <p className="font-bold text-white mb-2">
+                        Richem Cathedral
+                      </p>
+
+                      <p>
+                        Road Maker, Ado Road,
+                        Igoba, Akure,
+                        Ondo State
+                      </p>
+
+                    </div>
+
+                    <div className="space-y-2">
+
+                      <p>
+                        +234 913 049 0295
+                      </p>
+
+                      <p>
+                        adeloyedivine@gmail.com
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
-      </div>
-    </section>
+      </section>
+
+      {/* GIVING SECTION */}
+      <section
+        id="give"
+        className="py-24 bg-[#f8fbff]"
+      >
+
+        <div className="max-w-7xl mx-auto px-6">
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* LEFT */}
+            <div>
+
+              <p className="uppercase tracking-[0.3em] text-blue-700 text-sm mb-4">
+                Give & Support
+              </p>
+
+              <h2 className="text-5xl md:text-6xl font-black text-blue-950 leading-tight mb-8">
+                Partner With The Mission
+              </h2>
+
+              <p className="text-gray-700 text-lg leading-relaxed mb-10">
+                Your giving supports evangelism, discipleship, worship experiences, revival meetings and kingdom advancement.
+              </p>
+
+              <div className="bg-white rounded-[40px] p-10 shadow-2xl border border-blue-100">
+
+                <p className="text-gray-500 mb-3">
+                  Account Number
+                </p>
+
+                <h3 className="text-5xl font-black text-blue-950 mb-6 break-all">
+                  4150027086
+                </h3>
+
+                <p className="text-gray-700 text-lg mb-2">
+                  Riches In Christ Evangelical Mission
+                </p>
+
+                <p className="text-blue-700 font-bold text-lg">
+                  Fidelity Bank
+                </p>
+
+              </div>
+
+            </div>
+
+            {/* RIGHT */}
+            <div className="bg-white rounded-[40px] p-10 shadow-2xl border border-blue-100 flex items-center justify-center min-h-[500px]">
+
+              <div className="relative w-full h-[320px]">
+
+                <Image
+                  src="/images/card.jpg"
+                  alt="Giving Card"
+                  fill
+                  className="object-contain"
+                />
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </>
   );
 }

@@ -1,45 +1,46 @@
-import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Pastor from "./components/Pastor";
-import Services from "./components/Services";
-import Sermons from "./components/Sermons";
-import Gallery from "./components/Gallery";
-import Countdown from "./components/Countdown";
-import LiveStream from "./components/LiveStream";
-import Location from "./components/Location";
+import LiveSection from "./components/LiveSection";
 import Events from "./components/Events";
+import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-hidden">
 
-      <Navbar />
+      {/* HERO */}
+      <section id="home">
+        <Hero />
+      </section>
 
-      <Hero />
+      {/* ABOUT */}
+      <section id="about">
+        <About />
+      </section>
 
-      <About />
+      {/* LIVE */}
+      <section id="live">
+        <LiveSection />
+      </section>
 
-      <Pastor />
+      {/* EVENTS */}
+      <section id="events">
+        <Events />
+      </section>
 
-      <Services />
+      {/* GALLERY */}
+      <section id="gallery">
+        <Gallery />
+      </section>
 
-      <Sermons />
+      {/* CONTACT */}
+      <section id="contact">
+        <Contact />
+      </section>
 
-      <Gallery />
-
-      <Countdown />
-
-      <LiveStream />
-
-      <Location />
-
-      <Events />
-
-      <Contact />
-
+      {/* FOOTER */}
       <Footer />
 
     </main>

@@ -1,69 +1,54 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Pastor() {
   return (
-    <section className="py-28 px-6 bg-white">
+    <section id="about" className="py-24 bg-white">
 
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
-        {/* TEXT */}
-        <div>
+        {/* IMAGE */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
+            <Image
+              src="/images/pastor.jpg"
+              alt="pastor"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </motion.div>
 
-          <p className="uppercase tracking-[0.3em] text-blue-600 font-bold mb-6">
+        {/* TEXT CARD */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="bg-white p-8 rounded-2xl shadow-lg border"
+        >
+
+          <p className="text-blue-600 font-bold tracking-widest uppercase text-sm">
             Leadership
           </p>
 
-          <h2 className="text-5xl font-black text-slate-900 leading-tight mb-8">
-            Welcome From <br />
+          <h2 className="text-4xl font-black mt-4">
             Pastor M.K. Adeniyi
           </h2>
 
-          <p className="text-slate-600 text-lg leading-relaxed mb-6">
-            Welcome to Riches In Christ Evangelical Mission.
-            We are delighted to worship with you.
+          <p className="mt-6 text-gray-700 leading-relaxed">
+            A servant of God committed to raising believers grounded in truth,
+            prayer and victorious living.
           </p>
 
-          <p className="text-slate-600 text-lg leading-relaxed mb-6">
-            Through worship, prayer,
-            sound doctrine, and fellowship,
-            lives are transformed and destinies restored.
-          </p>
-
-          <div className="bg-blue-50 border border-blue-100 rounded-3xl p-8 mt-10">
-
-            <p className="text-blue-700 font-bold text-xl">
-              “If God be for us, who can be against us?”
-            </p>
-
-            <p className="text-slate-500 mt-2">
-              Romans 8:31
-            </p>
-
-          </div>
-
-        </div>
-
-        {/* IMAGE */}
-        <div className="flex justify-center">
-
-          <div className="w-[380px] h-[500px] rounded-[2rem] overflow-hidden shadow-2xl">
-
-            <Image
-              src="/images/pastor.jpg"
-              alt="Pastor"
-              width={500}
-              height={600}
-              className="object-cover w-full h-full"
-            />
-
-          </div>
-
-        </div>
+        </motion.div>
 
       </div>
-
     </section>
   );
 }

@@ -1,20 +1,23 @@
 import "./globals.css";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "RICHEM Worldwide",
-  description: "Riches In Christ Evangelical Mission",
-};
+import Navbar from "./components/Navbar";
+import Whatsapp from "./components/Whatsapp";
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body>
+
+        <Navbar />
+
         {children}
+
+        <Whatsapp />
+
       </body>
     </html>
   );

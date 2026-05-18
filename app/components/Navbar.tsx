@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -9,113 +10,156 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-6 py-5">
 
-      <div className="max-w-7xl mx-auto">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
 
-        <div className="backdrop-blur-xl bg-white/80 border border-blue-100 shadow-xl rounded-full px-8 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6">
+
+        <div className="flex items-center justify-between h-[90px]">
 
           {/* LOGO */}
-          <div className="flex items-center gap-4">
+          <Link
+            href="/"
+            className="flex items-center gap-4"
+          >
 
-            <div className="w-14 h-14 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center">
+            <div className="relative w-14 h-14 rounded-full overflow-hidden shadow-md">
 
               <Image
                 src="/images/logo.jpg"
-                alt="RICHEM Logo"
-                width={56}
-                height={56}
-                className="object-contain"
+                alt="RICHEM"
+                fill
+                className="object-cover"
               />
 
             </div>
 
-            <div>
+            <div className="leading-tight">
 
-              <h1 className="font-black text-slate-900 text-lg leading-tight">
-                RICHEM Worldwide
-              </h1>
+              <h2 className="text-xl md:text-2xl font-black text-blue-950">
+                RICHEM
+              </h2>
 
-              <p className="text-blue-600 text-sm">
-                Raising Believers
+              <p className="text-xs md:text-sm text-gray-500">
+                Raising Believers For Victorious Living
               </p>
 
             </div>
 
-          </div>
+          </Link>
 
-          {/* DESKTOP NAV */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* DESKTOP MENU */}
+          <nav className="hidden md:flex items-center gap-10">
 
-            <a href="#about" className="font-semibold text-slate-700 hover:text-blue-600 transition">
+            <a
+              href="#about"
+              className="text-gray-700 hover:text-blue-700 transition font-medium"
+            >
               About
             </a>
 
-            <a href="#gallery" className="font-semibold text-slate-700 hover:text-blue-600 transition">
+            <a
+              href="#live"
+              className="text-gray-700 hover:text-blue-700 transition font-medium"
+            >
+              Live
+            </a>
+
+            <a
+              href="#events"
+              className="text-gray-700 hover:text-blue-700 transition font-medium"
+            >
+              Convention
+            </a>
+
+            <a
+              href="#gallery"
+              className="text-gray-700 hover:text-blue-700 transition font-medium"
+            >
               Gallery
-            </a>
-
-            <a href="#events" className="font-semibold text-slate-700 hover:text-blue-600 transition">
-              Events
-            </a>
-
-            <a href="#contact" className="font-semibold text-slate-700 hover:text-blue-600 transition">
-              Contact
             </a>
 
             <a
               href="#contact"
-              className="bg-blue-600 hover:bg-blue-700 transition text-white px-6 py-3 rounded-full font-bold"
+              className="text-gray-700 hover:text-blue-700 transition font-medium"
             >
-              Join Us
+              Contact
             </a>
 
           </nav>
 
-          {/* MOBILE BUTTON */}
+          {/* MOBILE MENU BUTTON */}
           <button
             onClick={() => setOpen(!open)}
-            className="lg:hidden text-slate-900"
+            className="md:hidden"
           >
 
-            {open ? <X size={30} /> : <Menu size={30} />}
+            {open ? (
+              <X size={32} className="text-blue-950" />
+            ) : (
+              <Menu size={32} className="text-blue-950" />
+            )}
 
           </button>
 
         </div>
 
-        {/* MOBILE MENU */}
-        {open && (
-          <div className="lg:hidden mt-4 bg-white rounded-3xl shadow-2xl border border-blue-100 p-8 flex flex-col gap-6">
+      </div>
 
-            <a href="#about" onClick={() => setOpen(false)}>
+      {/* MOBILE MENU */}
+      {open && (
+
+        <div className="md:hidden bg-white border-t border-gray-100 shadow-xl">
+
+          <div className="flex flex-col px-6 py-8 gap-6">
+
+            <a
+              href="#about"
+              onClick={() => setOpen(false)}
+              className="text-lg font-semibold text-gray-700"
+            >
               About
             </a>
 
-            <a href="#gallery" onClick={() => setOpen(false)}>
+            <a
+              href="#live"
+              onClick={() => setOpen(false)}
+              className="text-lg font-semibold text-gray-700"
+            >
+              Live
+            </a>
+
+            <a
+              href="#events"
+              onClick={() => setOpen(false)}
+              className="text-lg font-semibold text-gray-700"
+            >
+              Convention
+            </a>
+
+            <a
+              href="#gallery"
+              onClick={() => setOpen(false)}
+              className="text-lg font-semibold text-gray-700"
+            >
               Gallery
-            </a>
-
-            <a href="#events" onClick={() => setOpen(false)}>
-              Events
-            </a>
-
-            <a href="#contact" onClick={() => setOpen(false)}>
-              Contact
             </a>
 
             <a
               href="#contact"
-              className="bg-blue-600 text-white text-center py-3 rounded-full font-bold"
+              onClick={() => setOpen(false)}
+              className="text-lg font-semibold text-gray-700"
             >
-              Join Us
+              Contact
             </a>
 
           </div>
-        )}
 
-      </div>
+        </div>
+
+      )}
 
     </header>
+
   );
 }

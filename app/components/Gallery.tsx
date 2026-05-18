@@ -1,83 +1,50 @@
 "use client";
 
 import Image from "next/image";
-
-const gallery = [
-  {
-    title: "Worship Experience",
-    image: "/images/worship.jpg",
-  },
-
-  {
-    title: "Congregation Fellowship",
-    image: "/images/church.jpg",
-  },
-];
+import { motion } from "framer-motion";
 
 export default function Gallery() {
+  const images = [
+    "/images/worship.jpg",
+    "/images/church.jpg",
+    "/images/pastor.jpg",
+  ];
+
   return (
-    <section
-      id="gallery"
-      className="py-28 px-6 bg-gradient-to-b from-blue-50 to-white"
-    >
+    <section className="py-24 bg-blue-950">
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto px-6">
 
-        {/* HEADING */}
-        <div className="text-center max-w-4xl mx-auto mb-20">
+        <h2 className="text-white text-4xl font-black text-center mb-12">
+          Church Gallery
+        </h2>
 
-          <p className="uppercase tracking-[0.3em] text-blue-600 font-bold mb-6">
-            Gallery
-          </p>
+        <div className="grid md:grid-cols-3 gap-8">
 
-          <h2 className="text-5xl font-black text-slate-900 leading-tight mb-8">
-            Moments Of Worship & Fellowship
-          </h2>
-
-          <p className="text-slate-600 text-lg leading-relaxed">
-            Experience the atmosphere of worship,
-            fellowship, revival, and transformation
-            at RICHEM Worldwide.
-          </p>
-
-        </div>
-
-        {/* GRID */}
-        <div className="grid lg:grid-cols-2 gap-10">
-
-          {gallery.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-[2rem] overflow-hidden shadow-2xl bg-white"
+          {images.map((img, i) => (
+            <motion.div
+              key={i}
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl overflow-hidden shadow-xl"
             >
 
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={800}
-                height={500}
-                className="object-cover w-full h-[420px]"
-              />
-
-              <div className="bg-slate-900 p-8">
-
-                <h3 className="text-3xl font-black text-white mb-3">
-                  {item.title}
-                </h3>
-
-                <p className="text-blue-100">
-                  Experience God’s presence through worship and fellowship.
-                </p>
-
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={img}
+                  alt="gallery"
+                  fill
+                  className="object-cover"
+                />
               </div>
 
-            </div>
+            </motion.div>
           ))}
 
         </div>
 
       </div>
-
     </section>
   );
 }
