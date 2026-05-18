@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Navbar() {
 
@@ -11,94 +11,77 @@ export default function Navbar() {
 
   return (
 
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
 
-        <div className="flex items-center justify-between h-[90px]">
+        <div className="flex items-center justify-between h-[88px]">
 
-          {/* LOGO */}
+          {/* LEFT */}
           <Link
             href="/"
-            className="flex items-center gap-4"
+            className="flex items-center gap-3 flex-1 min-w-0"
           >
 
-            <div className="relative w-14 h-14 rounded-full overflow-hidden shadow-md">
+            {/* LOGO */}
+            <div className="relative w-[52px] h-[52px] md:w-[60px] md:h-[60px] flex-shrink-0">
 
               <Image
                 src="/images/logo.jpg"
-                alt="RICHEM"
+                alt="RICHEM Logo"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
 
             </div>
 
-            <div className="leading-tight">
+            {/* TEXT */}
+            <div className="leading-tight min-w-0">
 
-              <h2 className="text-xl md:text-2xl font-black text-blue-950">
-                RICHEM
-              </h2>
+              <h1 className="font-black text-[13px] sm:text-[15px] md:text-[18px] text-blue-950 whitespace-nowrap">
+                Riches In Christ
+              </h1>
 
-              <p className="text-xs md:text-sm text-gray-500">
-                Raising Believers For Victorious Living
+              <p className="text-[10px] sm:text-[12px] md:text-[13px] text-blue-700 whitespace-nowrap">
+                Evangelical Mission
               </p>
 
             </div>
 
           </Link>
 
-          {/* DESKTOP MENU */}
-          <nav className="hidden md:flex items-center gap-10">
+          {/* DESKTOP NAV */}
+          <nav className="hidden md:flex items-center gap-10 font-semibold text-blue-950">
 
-            <a
-              href="#about"
-              className="text-gray-700 hover:text-blue-700 transition font-medium"
-            >
+            <a href="#home" className="hover:text-blue-700 transition">
+              Home
+            </a>
+
+            <a href="#about" className="hover:text-blue-700 transition">
               About
             </a>
 
-            <a
-              href="#live"
-              className="text-gray-700 hover:text-blue-700 transition font-medium"
-            >
-              Live
-            </a>
-
-            <a
-              href="#events"
-              className="text-gray-700 hover:text-blue-700 transition font-medium"
-            >
+            <a href="#events" className="hover:text-blue-700 transition">
               Convention
             </a>
 
-            <a
-              href="#gallery"
-              className="text-gray-700 hover:text-blue-700 transition font-medium"
-            >
-              Gallery
+            <a href="#live" className="hover:text-blue-700 transition">
+              Live
             </a>
 
-            <a
-              href="#contact"
-              className="text-gray-700 hover:text-blue-700 transition font-medium"
-            >
+            <a href="#contact" className="hover:text-blue-700 transition">
               Contact
             </a>
 
           </nav>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE BUTTON */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden"
+            className="md:hidden text-blue-950 text-4xl ml-2"
           >
 
-            {open ? (
-              <X size={32} className="text-blue-950" />
-            ) : (
-              <Menu size={32} className="text-blue-950" />
-            )}
+            {open ? <HiX /> : <HiMenu />}
 
           </button>
 
@@ -111,45 +94,25 @@ export default function Navbar() {
 
         <div className="md:hidden bg-white border-t border-gray-100 shadow-xl">
 
-          <div className="flex flex-col px-6 py-8 gap-6">
+          <div className="flex flex-col p-6 space-y-6 text-blue-950 font-semibold">
 
-            <a
-              href="#about"
-              onClick={() => setOpen(false)}
-              className="text-lg font-semibold text-gray-700"
-            >
+            <a href="#home" onClick={() => setOpen(false)}>
+              Home
+            </a>
+
+            <a href="#about" onClick={() => setOpen(false)}>
               About
             </a>
 
-            <a
-              href="#live"
-              onClick={() => setOpen(false)}
-              className="text-lg font-semibold text-gray-700"
-            >
-              Live
-            </a>
-
-            <a
-              href="#events"
-              onClick={() => setOpen(false)}
-              className="text-lg font-semibold text-gray-700"
-            >
+            <a href="#events" onClick={() => setOpen(false)}>
               Convention
             </a>
 
-            <a
-              href="#gallery"
-              onClick={() => setOpen(false)}
-              className="text-lg font-semibold text-gray-700"
-            >
-              Gallery
+            <a href="#live" onClick={() => setOpen(false)}>
+              Live
             </a>
 
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="text-lg font-semibold text-gray-700"
-            >
+            <a href="#contact" onClick={() => setOpen(false)}>
               Contact
             </a>
 
